@@ -23,7 +23,12 @@ public interface Function<I, O> {
      * @return A new {@code Function} that implements the identity function with the provided type
      */
     static <T> Function<T, T> identity() {
-        return null;
+        return new Function<>() {
+            @Override
+            public T call(final T input) {
+                return input;
+            }
+        };
     }
 
 }
